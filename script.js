@@ -28,11 +28,15 @@ function adicionarnumero(numero) {
 }
 
 function adicionarsimbolo(simbolo) {
-    if (symbol == false) {
-        calculo += simbolo;
-        atualizarDisplay();
-        symbol = true;
-        verifica = true;
+    if (symbol == false){
+       if (simbolo == 'x' || simbolo == '/'){
+          calculo += simbolo;
+        atualizarDisplay();  
+        }else{
+           calculo += simbolo;
+        atualizarDisplay(); 
+        symbol = true; 
+        } 
     }
 
 }
@@ -99,10 +103,12 @@ window.addEventListener('keydown', function(teclado) {
     }
 
     if (tecla == 'Enter' || tecla == '='){
+        this.event.preventDefault();
         calcular();
     }
 
     if (tecla == 'Backspace'){
         apagar();
     }
-});
+}
+);
