@@ -10,6 +10,11 @@
     border-radius: 30px;
 }
 
+#display{
+    display: block;
+    background-color: white;
+}
+
 .botao{
     padding: 10px;
     height: 50px;
