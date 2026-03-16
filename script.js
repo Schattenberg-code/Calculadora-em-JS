@@ -64,3 +64,8 @@ function virgula(){
     calculo += ","
     atualizarDisplay();
 }
+
+function reset(){
+    calculo = "0";
+    atualizarDisplay();
+}
