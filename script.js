@@ -1,10 +1,12 @@
 let calculo = " ";
-let display = document.querySelector("h4");
+let texto = document.querySelector("#display h4");
+let display = document.querySelector("#display");
 let verifica = true;
 let symbol = false;
 
 function atualizarDisplay(){
-    display.textContent = calculo;
+    texto.textContent = calculo;
+    display.scrollLeft = display.scrollWidth;
 }
 
 function adicionarnumero(numero){
@@ -40,6 +42,12 @@ function calcular(){
     let conta = calculo
     .replaceAll('x', '*')
     .replaceAll(',', '.');
+
+    if(calculo.includes("/0")){
+        calculo = "Erro impossivel dividir por 0"
+        atualizarDisplay();
+        return;
+    }
 
     if (verifica == true){
         calculo = eval(conta).toString();
