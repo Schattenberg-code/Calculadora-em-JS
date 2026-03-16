@@ -10,34 +10,37 @@
         <div id="calculadora">
 
             <div id="divtexto"><h1>Calculadora</h1></div>
-            <h4></h4>
+            <h4 id="display"></h4>
 
             <div class="flex">
                 <div id="grid1">
-                    <button class="botao">1</button>
-                    <button class="botao">2</button>
-                    <button class="botao">3</button>
-                    <button class="botao">4</button>
-                    <button class="botao">5</button>
-                    <button class="botao">6</button>
-                    <button class="botao">7</button>
-                    <button class="botao">8</button>
-                    <button class="botao">9</button>
-                    <button class="botao">0</button>
+                    <button class="botao" onclick="adicionarnumero(1)">1</button>
+                    <button class="botao" onclick="adicionarnumero(2)">2</button>
+                    <button class="botao" onclick="adicionarnumero(3)">3</button>
+                    <button class="botao" onclick="adicionarnumero(4)">4</button>
+                    <button class="botao" onclick="adicionarnumero(5)">5</button>
+                    <button class="botao" onclick="adicionarnumero(6)">6</button>
+                    <button class="botao" onclick="adicionarnumero(7)">7</button>
+                    <button class="botao" onclick="adicionarnumero(8)">8</button>
+                    <button class="botao" onclick="adicionarnumero(9)">9</button>
+                    <button class="botao" onclick="adicionarnumero(0)">0</button>
                 </div>
                 <div id="grid2">
-                    <button class="botao">+</button>
-                    <button class="botao">-</button>
-                    <button class="botao">x</button>
-                    <button class="botao">/</button>
+                    <button class="botao" onclick="adicionarsimbolo('+')">+</button>
+                    <button class="botao" onclick="adicionarsimbolo('-')">-</button>
+                    <button class="botao" onclick="adicionarsimbolo('x')">x</button>
+                    <button class="botao" onclick="adicionarsimbolo('/')">/</button>
                 </div>
             </div>
 
             <div id="enterbutton">
-                 <button class="botao">Enter</button>
+                 <button class="botao" onclick="calcular()">Enter</button>
             </div>
 
         </div>
 
 </body>
+
+    <script src="script.js"></script>
+
 </html>
