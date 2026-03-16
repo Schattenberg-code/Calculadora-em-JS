@@ -5,6 +5,7 @@ let symbol = false;
 
 function atualizarDisplay(){
     display.textContent = calculo;
+    display.scrollLeft = display.scrollWidth;
 }
 
 function adicionarnumero(numero){
