@@ -50,7 +50,7 @@ function calcular() {
             atualizarDisplay();
             return;
         }else{
-            calculo = resultado.toString().replace(',', '.');
+            calculo = resultado.toString().replace('.', ',');
             atualizarDisplay();
         }
         
@@ -82,3 +82,27 @@ function reset() {
     calculo = "0";
     atualizarDisplay();
 }
+
+window.addEventListener('keydown', function(teclado) {
+    const tecla = teclado.key;
+
+    if (!isNaN(tecla)){
+        adicionarnumero(tecla);
+    }
+    if (['+', '-' , '/', '*'].includes(tecla)) {
+        let sinal = (tecla == '*') ? 'x' : tecla;
+        adicionarsimbolo(sinal);
+    }
+
+    if (tecla == ',' || tecla == '.'){
+        virgula();
+    }
+
+    if (tecla == 'Enter' || tecla == '='){
+        calcular();
+    }
+
+    if (tecla == 'Backspace'){
+        apagar();
+    }
+});
