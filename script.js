@@ -20,3 +20,8 @@ function calcular(){
     calculo = eval(conta);
     atualizarDisplay();
 }
+
+function apagar(){
+    calculo = calculo.slice(0, -1);
+    atualizarDisplay();
+}

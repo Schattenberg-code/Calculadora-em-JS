@@ -10,8 +10,9 @@
         <div id="calculadora">
 
             <div id="divtexto"><h1>Calculadora</h1></div>
-            <h4 id="display"></h4>
-
+                <div id="display">
+                    <h4>0</h4>
+                </div>
             <div class="flex">
                 <div id="grid1">
                     <button class="botao" onclick="adicionarnumero(1)">1</button>
@@ -25,6 +26,7 @@
                     <button class="botao" onclick="adicionarnumero(9)">9</button>
                     <button id="invisible">invisivel</button>
                     <button class="botao" onclick="adicionarnumero(0)">0</button>
+                    <button class="botao" onclick="apagar()"><-</button>
                 </div>
                 <div id="grid2">
                     <button class="botao" onclick="adicionarsimbolo('+')">+</button>
