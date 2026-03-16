@@ -5,13 +5,23 @@ let symbol = false;
 
 function atualizarDisplay(){
     display.textContent = calculo;
-    display.scrollLeft = display.scrollWidth;
 }
 
 function adicionarnumero(numero){
-    if (verifica == true){
-     calculo += numero;
-    atualizarDisplay();   
+
+    if(calculo == "0"){
+        calculo = calculo.slice(0, -1);  
+        verifica = true;
+        if (verifica == true){
+        calculo += numero;
+        atualizarDisplay();  
+        } 
+    } else {
+        verifica = true;
+        if (verifica == true){
+        calculo += numero;
+        atualizarDisplay();  
+        }
     }
 }
 
@@ -27,12 +37,12 @@ function adicionarsimbolo(simbolo){
 
 function calcular(){
 
-        let conta = calculo
-        .replaceAll('x', '*')
-        .replaceAll(',', '.');
+    let conta = calculo
+    .replaceAll('x', '*')
+    .replaceAll(',', '.');
 
     if (verifica == true){
-        calculo = eval(conta);
+        calculo = eval(conta).toString();
         atualizarDisplay();  
     }
     verifica = false;
@@ -40,8 +50,13 @@ function calcular(){
 }
 
 function apagar(){
-    calculo = calculo.slice(0, -1);
-    atualizarDisplay();
+
+    if(calculo.length > 1){
+        calculo = calculo.slice(0, -1);  
+    } else {
+        calculo = "0";
+    }
+    atualizarDisplay();   
     symbol = false;
 }
 
