@@ -17,6 +17,7 @@
     border: 0.4px solid black;
     overflow-y: hidden;
     overflow-x: auto;
+    white-space: nowrap;
     text-align: right;
     width: 242;
     height: 38;
