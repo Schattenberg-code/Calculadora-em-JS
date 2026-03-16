@@ -1,6 +1,7 @@
 let calculo = " ";
 let display = document.querySelector("h4");
 let verifica = true;
+let symbol = false;
 
 function atualizarDisplay(){
     display.textContent = calculo;
@@ -14,9 +15,13 @@ function adicionarnumero(numero){
 }
 
 function adicionarsimbolo(simbolo){
-    calculo += simbolo;
+    if (symbol == false){
+      calculo += simbolo;
     atualizarDisplay();
-    verifica = true;
+    symbol = true;
+    verifica = true;  
+    }
+    
 }
 
 function calcular(){
@@ -27,11 +32,13 @@ function calcular(){
         atualizarDisplay();  
     }
     verifica = false;
+    symbol = false;
 }
-
+'   '
 function apagar(){
     calculo = calculo.slice(0, -1);
     atualizarDisplay();
+    symbol = false;
 }
 
 function virgula(){
