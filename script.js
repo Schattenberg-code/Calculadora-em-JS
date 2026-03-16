@@ -25,8 +25,11 @@ function adicionarsimbolo(simbolo){
 }
 
 function calcular(){
-    let conta = calculo.replace('x','*');
-    conta = calculo.replace(',', '.');
+
+        let conta = calculo
+        .replaceAll('x', '*')
+        .replaceAll(',', '.');
+
     if (verifica == true){
         calculo = eval(conta);
         atualizarDisplay();  
@@ -34,7 +37,7 @@ function calcular(){
     verifica = false;
     symbol = false;
 }
-'   '
+
 function apagar(){
     calculo = calculo.slice(0, -1);
     atualizarDisplay();
