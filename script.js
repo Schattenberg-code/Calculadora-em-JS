@@ -44,7 +44,7 @@ function calcular(){
     .replaceAll(',', '.');
 
     if(calculo.includes("/0")){
-        calculo = "Erro impossivel dividir por 0"
+        calculo = "Impossivel dividir por 0"
         atualizarDisplay();
         return;
     }
@@ -63,6 +63,8 @@ function apagar(){
         calculo = calculo.slice(0, -1);  
     } else {
         calculo = "0";
+        symbol = true;
+        return;
     }
     atualizarDisplay();   
     symbol = false;
