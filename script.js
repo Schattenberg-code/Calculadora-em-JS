@@ -26,5 +26,9 @@ function calcular(){
         atualizarDisplay();  
     }
     verifica = false;
-    
+}
+
+function apagar(){
+    calculo = calculo.slice(0, -1);
+    atualizarDisplay();
 }

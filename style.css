@@ -5,9 +5,21 @@
     transform: translate(-50%, -50%);
     padding: 10px;
 
-    background-image: linear-gradient(rgb(105, 219, 235), rgb(116, 233, 227));
-    border: 1px solid black;
-    border-radius: 30px;
+    background-image: linear-gradient(rgb(209, 209, 209));
+    border: 0.4px solid black;
+    border-radius: 3px;
+}
+
+#display{
+    background-color: white;
+    border: 0.4px solid black;
+    width: 100%;
+    padding: 10px 0px;
+
+    margin-bottom: 10px;
+    h4{
+        margin: 10px;
+    }
 }
 
 #display{
@@ -21,6 +33,7 @@
     width: 50px;
     cursor: pointer;
     transition: 0.2s;
+    border: 0.4px solid black;
 }
 
 .botao:hover{
