@@ -6,19 +6,24 @@
     padding: 10px;
 
     background-image: linear-gradient(rgb(209, 209, 209));
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: 0.4px solid black;
     border-radius: 3px;
 }
 
 #display{
+    font-size: 20px;
     background-color: white;
     border: 0.4px solid black;
     width: 100%;
-    padding: 10px 0px;
+    height: 38;
+    padding-top: 10px;
+    padding-bottom: 19px;
 
     margin-bottom: 10px;
     h4{
         margin: 10px;
+        align-items:center;
     }
 }
 
@@ -28,6 +33,7 @@
 }
 
 .botao{
+    font-size: 20px;
     padding: 10px;
     height: 50px;
     width: 50px;
