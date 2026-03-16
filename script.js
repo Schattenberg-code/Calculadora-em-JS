@@ -1,4 +1,4 @@
-let calculo = " ";
+let calculo = "0";
 let texto = document.querySelector("#display h4");
 let display = document.querySelector("#display");
 let verifica = true;
@@ -66,13 +66,12 @@ function calcular() {
 
 function apagar() {
 
-    if (calculo.length > 1) {
+    if (calculo.length > 1){
         calculo = calculo.slice(0, -1);
-    } else {
+    } else if(calculo>"0"){
         calculo = "0";
-        symbol = true;
-        return;
     }
+
     atualizarDisplay();
     symbol = false;
 }
