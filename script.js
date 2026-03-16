@@ -4,78 +4,81 @@ let display = document.querySelector("#display");
 let verifica = true;
 let symbol = false;
 
-function atualizarDisplay(){
+function atualizarDisplay() {
     texto.textContent = calculo;
     display.scrollLeft = display.scrollWidth;
 }
 
-function adicionarnumero(numero){
+function adicionarnumero(numero) {
 
-    if(calculo == "0"){
-        calculo = calculo.slice(0, -1);  
+    if (calculo == "0") {
+        calculo = calculo.slice(0, -1);
         verifica = true;
-        if (verifica == true){
-        calculo += numero;
-        atualizarDisplay();  
-        } 
+        if (verifica == true) {
+            calculo += numero;
+            atualizarDisplay();
+        }
     } else {
         verifica = true;
-        if (verifica == true){
-        calculo += numero;
-        atualizarDisplay();  
+        if (verifica == true) {
+            calculo += numero;
+            atualizarDisplay();
         }
     }
 }
 
-function adicionarsimbolo(simbolo){
-    if (symbol == false){
-      calculo += simbolo;
-    atualizarDisplay();
-    symbol = true;
-    verifica = true;  
+function adicionarsimbolo(simbolo) {
+    if (symbol == false) {
+        calculo += simbolo;
+        atualizarDisplay();
+        symbol = true;
+        verifica = true;
     }
-    
+
 }
 
-function calcular(){
+function calcular() {
 
     let conta = calculo
-    .replaceAll('x', '*')
-    .replaceAll(',', '.');
+        .replaceAll('x', '*')
+        .replaceAll(',', '.');
 
-    if(calculo.includes("/0")){
-        calculo = "Impossivel dividir por 0"
-        atualizarDisplay();
-        return;
+    if (verifica == true) {
+        let resultado = eval(conta);
+        if (resultado === Infinity) {
+            calculo = "Impossivel dividir por 0"
+            atualizarDisplay();
+            return;
+        }else{
+            calculo = resultado.toString().replace(',', '.');
+            atualizarDisplay();
+        }
+        
     }
 
-    if (verifica == true){
-        calculo = eval(conta).toString();
-        atualizarDisplay();  
-    }
     verifica = false;
     symbol = false;
 }
 
-function apagar(){
+function apagar() {
 
-    if(calculo.length > 1){
-        calculo = calculo.slice(0, -1);  
+    if (calculo.length > 1) {
+        calculo = calculo.slice(0, -1);
     } else {
         calculo = "0";
         symbol = true;
         return;
     }
-    atualizarDisplay();   
+    atualizarDisplay();
     symbol = false;
 }
 
-function virgula(){
+function virgula() {
     calculo += ","
     atualizarDisplay();
 }
 
-function reset(){
+function reset() {
     calculo = "0";
     atualizarDisplay();
 }
