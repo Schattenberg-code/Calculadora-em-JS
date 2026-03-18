@@ -41,7 +41,7 @@ function adicionarsimbolo(simbolo) {
             }
     }
     if (simbolo == '+' || simbolo == '-') {
-        if (!calculo.endsWith('+') && !calculo.endsWith('-')) {
+        if (!calculo.endsWith('+') && !calculo.endsWith('-') && !calculo.endsWith(',')) {
             calculo += simbolo;
             atualizarDisplay();
         }
