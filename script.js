@@ -5,6 +5,7 @@ let verifica = true;
 let symbol = false;
 let historico = "0";
 let multi = false;
+const textohis = document.querySelector("#textohistorico");
 
 function atualizarDisplay() {
     texto.textContent = calculo;
@@ -12,6 +13,7 @@ function atualizarDisplay() {
 }
 
 function adicionarnumero(numero) {
+textohis.style.opacity = 0;
 
     if (calculo == "0") {
         calculo = calculo.slice(0, -1);
@@ -30,6 +32,8 @@ function adicionarnumero(numero) {
 }
 
 function adicionarsimbolo(simbolo) {
+textohis.style.opacity = 0;
+
     if (symbol == false){
        if (simbolo == 'x' || simbolo == '/'){
             if(multi == false){
@@ -48,6 +52,7 @@ function adicionarsimbolo(simbolo) {
 }
 
 function calcular() {
+textohis.style.opacity = 0;
 
     let conta = calculo
         .replaceAll('x', '*')
@@ -74,6 +79,7 @@ function calcular() {
 }
 
 function apagar() {
+textohis.style.opacity = 0;
 
     if (calculo.length > 1){
         calculo = calculo.slice(0, -1);
@@ -97,6 +103,7 @@ function reset() {
 }
 
 function historicos(){
+    textohis.style.opacity = 1;
     calculo = historico;
     atualizarDisplay();
 }
