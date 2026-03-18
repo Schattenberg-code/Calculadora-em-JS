@@ -34,13 +34,18 @@ function adicionarsimbolo(simbolo) {
     textohis.style.opacity = 0;
 
     if (!calculo.includes('x') && !calculo.includes('/')) {
-        if (simbolo == 'x' || simbolo == '/') {
+        if (!calculo.endsWith('+') && !calculo.endsWith('-'))
+            if (simbolo == 'x' || simbolo == '/') {
+                calculo += simbolo;
+                atualizarDisplay();
+            }
+    }
+    if (simbolo == '+' || simbolo == '-') {
+        if (!calculo.endsWith('+') && !calculo.endsWith('-')) {
             calculo += simbolo;
             atualizarDisplay();
         }
-    } else if (simbolo == '+' || simbolo == '-') {
-        calculo += simbolo;
-        atualizarDisplay();
+
     }
 
 }
@@ -88,11 +93,11 @@ function virgula() {
     if (!calculo.includes(',')) {
         calculo += ","
         atualizarDisplay();
-        
+
     } else if (calculo.includes('+') || calculo.includes('-')) {
         calculo += ","
         atualizarDisplay();
-       
+
     }
 
 }
