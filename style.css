@@ -107,3 +107,21 @@
         height: 17px;
     }
 }
+
+#botaohistorico{
+    position: absolute;
+    top: 83px;
+    left: 7px;
+    button{
+        width: 20px;
+        height: 20px;
+    }
+    img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 17px;
+        height: 17px;
+    }
+}

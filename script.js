@@ -3,6 +3,7 @@ let texto = document.querySelector("#display h4");
 let display = document.querySelector("#display");
 let verifica = true;
 let symbol = false;
+let historico = "0";
 
 function atualizarDisplay() {
     texto.textContent = calculo;
@@ -45,6 +46,7 @@ function calcular() {
 
     let conta = calculo
         .replaceAll('x', '*')
+        .replaceAll('÷', '/')
         .replaceAll(',', '.');
 
     if (verifica == true) {
@@ -56,6 +58,7 @@ function calcular() {
         }else{
             calculo = resultado.toString().replace('.', ',');
             atualizarDisplay();
+            historico = calculo;      
         }
         
     }
@@ -68,7 +71,7 @@ function apagar() {
 
     if (calculo.length > 1){
         calculo = calculo.slice(0, -1);
-    } else if(calculo>"0"){
+    } else if(calculo>"0" || calculo == "-"){
         calculo = "0";
     }
 
@@ -83,6 +86,11 @@ function virgula() {
 
 function reset() {
     calculo = "0";
+    atualizarDisplay();
+}
+
+function historicos(){
+    calculo = historico;
     atualizarDisplay();
 }
 
@@ -111,3 +119,5 @@ window.addEventListener('keydown', function(teclado) {
     }
 }
 );
+
+
