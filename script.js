@@ -4,6 +4,7 @@ let display = document.querySelector("#display");
 let verifica = true;
 let symbol = false;
 let historico = "0";
+let multi = false;
 
 function atualizarDisplay() {
     texto.textContent = calculo;
@@ -31,8 +32,12 @@ function adicionarnumero(numero) {
 function adicionarsimbolo(simbolo) {
     if (symbol == false){
        if (simbolo == 'x' || simbolo == '/'){
-          calculo += simbolo;
-        atualizarDisplay();  
+            if(multi == false){
+             calculo += simbolo;
+        atualizarDisplay();
+        multi = true;    
+            }
+           
         }else{
            calculo += simbolo;
         atualizarDisplay(); 
@@ -65,6 +70,7 @@ function calcular() {
 
     verifica = false;
     symbol = false;
+    multi = false;
 }
 
 function apagar() {
@@ -77,6 +83,7 @@ function apagar() {
 
     atualizarDisplay();
     symbol = false;
+    multi = false;
 }
 
 function virgula() {
