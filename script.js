@@ -93,11 +93,15 @@ textohis.style.opacity = 0;
 }
 
 function virgula() {
+    textohis.style.opacity = 0;
+    
     calculo += ","
     atualizarDisplay();
 }
 
 function reset() {
+    textohis.style.opacity = 0;
+
     calculo = "0";
     atualizarDisplay();
     symbol = false;
