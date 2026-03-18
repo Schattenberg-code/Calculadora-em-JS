@@ -100,6 +100,7 @@ function virgula() {
 function reset() {
     calculo = "0";
     atualizarDisplay();
+    symbol = false;
 }
 
 function historicos(){
