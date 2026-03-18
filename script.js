@@ -95,8 +95,13 @@ function virgula() {
         atualizarDisplay();
 
     } else if (calculo.includes('+') || calculo.includes('-')) {
-        calculo += ","
-        atualizarDisplay();
+        if (calculo.endsWith(',') || calculo.endsWith('+') || calculo.endsWith('-')){
+
+        }else{
+           calculo += ","
+        atualizarDisplay();  
+        }
+       
 
     }
 
