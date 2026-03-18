@@ -2,9 +2,8 @@ let calculo = "0";
 let texto = document.querySelector("#display h4");
 let display = document.querySelector("#display");
 let verifica = true;
-let symbol = false;
 let historico = "0";
-let multi = false;
+
 const textohis = document.querySelector("#textohistorico");
 
 function atualizarDisplay() {
@@ -13,7 +12,7 @@ function atualizarDisplay() {
 }
 
 function adicionarnumero(numero) {
-textohis.style.opacity = 0;
+    textohis.style.opacity = 0;
 
     if (calculo == "0") {
         calculo = calculo.slice(0, -1);
@@ -32,27 +31,27 @@ textohis.style.opacity = 0;
 }
 
 function adicionarsimbolo(simbolo) {
-textohis.style.opacity = 0;
+    textohis.style.opacity = 0;
 
-    if (symbol == false){
-       if (simbolo == 'x' || simbolo == '/'){
-            if(multi == false){
-             calculo += simbolo;
-        atualizarDisplay();
-        multi = true;    
+    if (!calculo.includes('x') && !calculo.includes('/')) {
+        if (!calculo.endsWith('+') && !calculo.endsWith('-'))
+            if (simbolo == 'x' || simbolo == '/') {
+                calculo += simbolo;
+                atualizarDisplay();
             }
-           
-        }else{
-           calculo += simbolo;
-        atualizarDisplay(); 
-        symbol = true; 
-        } 
+    }
+    if (simbolo == '+' || simbolo == '-') {
+        if (!calculo.endsWith('+') && !calculo.endsWith('-')) {
+            calculo += simbolo;
+            atualizarDisplay();
+        }
+
     }
 
 }
 
 function calcular() {
-textohis.style.opacity = 0;
+    textohis.style.opacity = 0;
 
     let conta = calculo
         .replaceAll('x', '*')
@@ -65,38 +64,47 @@ textohis.style.opacity = 0;
             calculo = "Impossivel dividir por 0"
             atualizarDisplay();
             return;
-        }else{
+        } else {
             calculo = resultado.toString().replace('.', ',');
             atualizarDisplay();
-            historico = calculo;      
+            historico = calculo;
         }
-        
+
     }
 
     verifica = false;
-    symbol = false;
-    multi = false;
 }
 
 function apagar() {
-textohis.style.opacity = 0;
+    textohis.style.opacity = 0;
 
-    if (calculo.length > 1){
+    if (calculo.length > 1) {
         calculo = calculo.slice(0, -1);
-    } else if(calculo>"0" || calculo == "-"){
+    } else if (calculo > "0" || calculo == "-") {
         calculo = "0";
     }
 
     atualizarDisplay();
-    symbol = false;
-    multi = false;
 }
 
 function virgula() {
+
     textohis.style.opacity = 0;
-    
-    calculo += ","
-    atualizarDisplay();
+    if (!calculo.includes(',')) {
+        calculo += ","
+        atualizarDisplay();
+
+    } else if (calculo.includes('+') || calculo.includes('-')) {
+        if (calculo.endsWith(',') || calculo.endsWith('+') || calculo.endsWith('-')){
+
+        }else{
+           calculo += ","
+        atualizarDisplay();  
+        }
+       
+
+    }
+
 }
 
 function reset() {
@@ -104,36 +112,35 @@ function reset() {
 
     calculo = "0";
     atualizarDisplay();
-    symbol = false;
 }
 
-function historicos(){
+function historicos() {
     textohis.style.opacity = 1;
     calculo = historico;
     atualizarDisplay();
 }
 
-window.addEventListener('keydown', function(teclado) {
+window.addEventListener('keydown', function (teclado) {
     const tecla = teclado.key;
 
-    if (!isNaN(tecla)){
+    if (!isNaN(tecla)) {
         adicionarnumero(tecla);
     }
-    if (['+', '-' , '/', '*'].includes(tecla)) {
+    if (['+', '-', '/', '*'].includes(tecla)) {
         let sinal = (tecla == '*') ? 'x' : tecla;
         adicionarsimbolo(sinal);
     }
 
-    if (tecla == ',' || tecla == '.'){
+    if (tecla == ',' || tecla == '.') {
         virgula();
     }
 
-    if (tecla == 'Enter' || tecla == '='){
+    if (tecla == 'Enter' || tecla == '=') {
         this.event.preventDefault();
         calcular();
     }
 
-    if (tecla == 'Backspace'){
+    if (tecla == 'Backspace') {
         apagar();
     }
 }
