@@ -60,7 +60,7 @@ function calcular() {
 
     if (verifica == true) {
         let resultado = eval(conta);
-        if (resultado === Infinity) {
+        if (resultado === Infinity || resultado == -Infinity) {
             calculo = "Impossivel dividir por 0"
             atualizarDisplay();
             return;
@@ -98,8 +98,17 @@ function virgula() {
         if (calculo.endsWith(',') || calculo.endsWith('+') || calculo.endsWith('-')){
 
         }else{
-           calculo += ","
-        atualizarDisplay();  
+            let decimais = 0;
+            for (const caractere of calculo){
+                if (caractere == ","){
+                    decimais++;
+                }
+            }
+            if (decimais < 2){
+               calculo += ","
+        atualizarDisplay();   
+            }
+           
         }
        
 
